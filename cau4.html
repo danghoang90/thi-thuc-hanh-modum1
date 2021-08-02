@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<canvas id="myCanvas"></canvas>
+<canvas id="myCanvas" width="600" height="600" style="border: 4px solid firebrick"></canvas>
 <script>
     // cau4
     function Circle (x, y, radius, color) {
@@ -13,16 +13,15 @@
         this.y = y;
         this.radius = radius;
         this.color = color;
+        this.render = function () {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+            ctx.fill();
+        }
     };
-    function createCircle(){
-        let ctx = document.getElementById("myCanvas").getContext("2d");
-        let circle= new Circle(10, 10, 100, "#000000");
-        ctx.beginPath();
-        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
-        ctx.fillStyle = circle.color;
-        ctx.fill();
-    };
-    createCircle();
+    let circle = new Circle(10, 10, 100, '#000000');
+    circle.render();
 </script>
 </body>
 </html>
