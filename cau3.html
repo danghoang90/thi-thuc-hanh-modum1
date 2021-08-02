@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // cau3
+    function isFibonacci(n) {
+        let f0 = 1;
+        let f1 = 1;
+        let f = 0;
+        if(n < 0)
+            return false;
+        if(n < 2)
+            return true;
+        while(f < n) {
+            f = f0 + f1;
+            f0 = f1;
+            f1 = f;
+            if (f === n) {
+                return true;
+            }
+        }
+        return false;
+    };
+</script>
+</body>
+</html>
